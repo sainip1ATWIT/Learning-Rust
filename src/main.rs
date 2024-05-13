@@ -1,3 +1,10 @@
+struct User {
+    active: bool,
+    name: String,
+    email: String,
+    user_id: u8,
+}
+
 fn main() {
     println!("Hello, world!");
 
@@ -43,8 +50,52 @@ fn main() {
         println!("{}", array_element);
     }
 
+    //control flow - Fizz, Buzz, FizzBuzz
+    println!("");
+    println!("Control Flow: Fizz, Buzz, FizzBuzz");
+    println!("");
+    let number: u8 = 10;
+    println!("Number is {}", number);
+    
+    if number % 3 == 0 && number % 5 == 0 {
+        println!("FizzBuzz");
+    } else if number % 3 == 0 {
+        println!("Fizz");
+    } else if number % 5 == 0 {
+        println!("Buzz");
+    } else {
+        println!("{}", number);
+    }
+
+    //creating instance of a struct "User"
+    println!("");
+
+    let name = "Prab".to_string();
+    let email = "sainip1@wit.edu".to_string();
+    let user_id = 1;
+
+
+
+    let mut prab = build_user(name, email, user_id);
+
+    println!("Is {} active? {}", prab.name, prab.active);
+    println!("Email: {}", prab.email);
+    println!("User ID: {}", prab.user_id);
+    prab.active = false;
+    println!("Is {} still active? {}", prab.name, prab.active);
+    println!("");
+
 }
 
 fn add_nums (x: i32, y: i32) -> i32{
     x + y
+}
+
+fn build_user (name: String, email: String, user_id: u8) -> User {
+    User {
+        active: true,
+        name,
+        email,
+        user_id,
+    }
 }
